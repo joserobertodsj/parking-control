@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class ParkingSpotService {
@@ -41,5 +40,10 @@ public class ParkingSpotService {
 
     public Optional<ParkingSpotModel> findById(Long id) {
         return parkingSpotRepository.findById(id);
+    }
+
+    @Transactional
+    public void delete(ParkingSpotModel parkingSpotModel) {
+        parkingSpotRepository.delete(parkingSpotModel);
     }
 }
